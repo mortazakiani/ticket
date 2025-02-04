@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"os"
-
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/mortazakiani/ticket/internal/utiles"
 	"github.com/rs/zerolog"
