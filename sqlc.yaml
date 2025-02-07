@@ -5,12 +5,9 @@ sql:
     schema: "internal/db/migration"
     gen:
       go:
-        package: "tutorial"
-        out: "tutorial"
+        package: "db"
+        out: "internal/db/sqlc"
         sql_package: "pgx/v5"
-        email_json_tags: true
-        email_interface: true
-        email_empty_slices: true
         overrides:
           - db_type: "timestamptz"
             go_type: "time.Time"

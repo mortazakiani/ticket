@@ -19,6 +19,3 @@ UPDATE authors
   set name = $2,
   bio = $3
 WHERE id = $1;
-
--- name: DeleteAuthor :exec
-DELETE FROM authors
