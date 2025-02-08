@@ -8,6 +8,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/mortazakiani/ticket/internal/api"
 	db "github.com/mortazakiani/ticket/internal/db/sqlc"
+	"github.com/mortazakiani/ticket/internal/routes"
 	"github.com/mortazakiani/ticket/internal/utiles"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -40,5 +41,14 @@ func main() {
 	server ,err:= api.Newserver(config,store)
 	if err != nil {
 		log.Fatal().Err(err).Msg("cannot connect  to server ")
+	}
+	
+	if err := routes.SetupRoutes(server); err != nil {
+		log.Fatal().Err(err).Msg("cannot  set routes")
+	} 
+
+	err=server.Start(config.APPPORT)
+	if err != nil {
+		log.Fatal().Err(err).Msg("cannot start server ")
 	}
 }
