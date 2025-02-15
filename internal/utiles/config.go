@@ -13,6 +13,8 @@ type Config struct {
 	DBPASSWORD string `mapstructure:"DB_PASSWORD"`
 	DBDATABASE string `mapstructure:"DB_DATABASE"`
 	DBPORT string `mapstructure:"DB_PORT"`
+	MIGRATIONURL string `mapstructure:"MIGRATION_URL"`
+
 
 
 
